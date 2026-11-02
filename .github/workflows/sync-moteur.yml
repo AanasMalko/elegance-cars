@@ -1,0 +1,36 @@
+name: Synchroniser le stock Moteur.ma
+
+on:
+  schedule:
+    - cron: "17 */3 * * *"   # toutes les 3 heures
+  workflow_dispatch: {}        # bouton "Run workflow" pour lancer à la main
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-moteur
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - name: Lire la vitrine Moteur.ma et mettre à jour cars.json
+        run: node scripts/sync-moteur.mjs
+      - name: Enregistrer les changements
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "elegance-cars-bot"
+            git config user.email "elegance-cars-bot@users.noreply.github.com"
+            git add -A cars.json assets/cars
+            git commit -m "Stock Moteur.ma mis à jour"
+            git push
+          else
+            echo "Aucun changement."
+          fi

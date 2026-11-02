@@ -1,0 +1,672 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<link rel="icon" href="assets/mark.png">
+<title>Elegance Cars</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Elegance Cars, showroom automobile à Casablanca (Maârif) : voitures de luxe et premium, neuves et d'occasion, importées. Le prestige au sommet de l'élégance.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@1,500;1,600&display=swap">
+<style>
+/* Layout: black showroom floor, gold drawn straight from the logo; wide uppercase Montserrat (the wordmark's face) with an italic serif voice for the tagline. */
+:root{
+  --ink:#0a0a09;          /* page black */
+  --panel:#13120f;        /* raised surfaces */
+  --line:#2a261c;         /* hairlines, warm */
+  --text:#ece6d6;         /* warm ivory body text */
+  --muted:#9d9584;        /* secondary text */
+  --gold-deep:#7f6a2c;    /* logo shadow gold */
+  --gold:#c3a457;         /* logo mid gold */
+  --gold-light:#e8dc8c;   /* logo highlight */
+  --gold-grad:linear-gradient(100deg,#7f6a2c 0%,#b8984d 28%,#e8dc8c 52%,#b8984d 74%,#8a7433 100%);
+  --ok:#8fbf8a;
+  --display:"Montserrat",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  --body:"Montserrat",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
+  --serif:"Cormorant Garamond","Iowan Old Style",Georgia,serif;
+  --maxw:1240px;
+  --gutter-l:max(16px,env(safe-area-inset-left,0px));
+  --gutter-r:max(16px,env(safe-area-inset-right,0px));
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{margin:0}
+img{max-width:100%}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+section[id]{scroll-margin-top:80px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important;animation:none!important}}
+body{background:var(--ink);color:var(--text);font-family:var(--body);font-size:15px;line-height:1.65;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--ink)}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--gold-light);outline-offset:3px}
+.wrap{max-width:var(--maxw);margin-inline:auto;padding-left:var(--gutter-l);padding-right:var(--gutter-r)}
+.eyebrow{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);font-weight:600}
+.gold-text{background:var(--gold-grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+h1,h2,h3{font-family:var(--display);text-wrap:balance;margin:0;font-weight:700;letter-spacing:.06em;text-transform:uppercase}
+h2{font-size:clamp(24px,3.2vw,36px);line-height:1.15}
+.serif{font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:0;text-transform:none}
+
+/* Buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:48px;padding-inline:26px;border:1px solid transparent;font:600 12px/1 var(--body);letter-spacing:.22em;text-transform:uppercase;cursor:pointer;transition:filter .2s,background-color .2s,color .2s,border-color .2s}
+.btn-gold{background:var(--gold-grad);color:#14110a}
+.btn-gold:hover{filter:brightness(1.08)}
+.btn-ghost{background:transparent;color:var(--text);border-color:var(--gold-deep)}
+.btn-ghost:hover{border-color:var(--gold-light);color:var(--gold-light)}
+
+/* Top bar */
+.topbar{border-bottom:1px solid var(--line);font-size:12px;color:var(--muted)}
+.topbar .wrap{display:flex;justify-content:space-between;gap:16px;padding-block:9px;flex-wrap:wrap}
+.topbar span b{color:var(--text);font-weight:500}
+.topbar .tb-right{display:flex;gap:22px;flex-wrap:wrap;align-items:center}
+.topbar .social.icons a{width:auto;height:auto;border:0}
+
+/* Header */
+header.site{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:rgba(10,10,9,.88);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;height:78px}
+.brand{display:flex;align-items:center;gap:14px}
+.brand img.mark{height:46px;width:auto}
+.brand img.word{height:15px;width:auto}
+nav.main{display:flex;gap:24px;font-size:11px;letter-spacing:.16em;white-space:nowrap;text-transform:uppercase;font-weight:500}
+nav.main a{color:var(--muted);padding-block:6px;border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+nav.main a:hover{color:var(--gold-light);border-color:var(--gold-deep)}
+.hdr-cta{height:42px;padding-inline:18px;font-size:11px;white-space:nowrap}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--text);width:44px;height:44px;cursor:pointer}
+.menu-btn span{display:block;width:18px;height:1px;background:var(--gold-light);margin:5px auto}
+@media (max-width:1160px){
+  nav.main,.hdr-cta{display:none}
+  .menu-btn{display:block}
+  nav.main.open{display:flex;position:absolute;top:78px;left:0;right:0;flex-direction:column;gap:0;background:var(--ink);border-bottom:1px solid var(--line);padding-left:var(--gutter-l);padding-right:var(--gutter-r);padding-block:8px 18px}
+  nav.main.open a{padding-block:14px;border-bottom:1px solid var(--line)}
+}
+
+/* Hero */
+.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 72% 55%,rgba(195,164,87,.16),transparent 70%),radial-gradient(40% 40% at 15% 10%,rgba(232,220,140,.05),transparent 70%);pointer-events:none}
+.hero .wrap{position:relative;display:grid;grid-template-columns:1.05fr 1fr;gap:40px;align-items:center;padding-block:72px 104px}
+.hero h1{font-size:clamp(34px,5.4vw,66px);line-height:1.04;letter-spacing:.04em}
+.hero .tag{font-size:clamp(22px,2.4vw,30px);color:var(--gold-light);margin:18px 0 0}
+.hero p.lede{color:var(--muted);max-width:46ch;margin:18px 0 30px}
+.hero .ctas{display:flex;gap:14px;flex-wrap:wrap}
+.hero-visual{position:relative;min-width:0}
+.hero-visual svg{width:100%;height:auto;display:block}
+.hero-floor{position:absolute;left:6%;right:6%;bottom:6%;height:1px;background:var(--gold-grad);opacity:.6}
+.hero-stats{display:flex;gap:20px 36px;margin-top:40px;flex-wrap:wrap}
+.hero-stats div{display:flex;flex-direction:column}
+.hero-stats b{font:700 26px/1.1 var(--display);font-variant-numeric:tabular-nums}
+.hero-stats span{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:900px){.hero .wrap{grid-template-columns:1fr;padding-block:48px 40px}.hero-visual{order:-1;max-width:560px}}
+
+/* Search */
+.search{position:relative;z-index:2;margin-top:-1px}
+.search .wrap{padding-block:0}
+.search form{display:grid;grid-template-columns:repeat(4,minmax(0,1fr)) auto;border:1px solid var(--line);background:var(--panel);transform:translateY(-50%)}
+.search label{display:flex;flex-direction:column;gap:4px;padding:16px 20px;border-right:1px solid var(--line);min-width:0}
+.search label span{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.search select{appearance:none;-webkit-appearance:none;background:transparent;border:0;color:var(--text);font:500 14px var(--body);padding:2px 0;cursor:pointer;width:100%}
+.search select option{background:var(--panel);color:var(--text)}
+.search .btn{height:auto;min-height:72px;padding-inline:34px}
+@media (max-width:900px){
+  .search form{grid-template-columns:1fr 1fr;transform:none;margin-top:28px}
+  .search label:nth-child(2n){border-right:0}
+  .search label{border-bottom:1px solid var(--line)}
+  .search .btn{grid-column:1/-1;min-height:56px}
+}
+
+/* Section scaffolding */
+section.block{padding-block:40px 96px}
+.sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:36px;flex-wrap:wrap}
+.sec-head .left{display:flex;flex-direction:column;gap:12px}
+.sec-head .sub{font-size:22px;color:var(--muted)}
+
+/* Inventory */
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{background:transparent;border:1px solid var(--line);color:var(--muted);font:500 11px var(--body);letter-spacing:.18em;text-transform:uppercase;padding:9px 14px;cursor:pointer;transition:all .2s}
+.chip:hover{color:var(--text);border-color:var(--gold-deep)}
+.chip[aria-pressed="true"]{color:#14110a;background:var(--gold-grad);border-color:transparent}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:24px}
+.car{display:flex;flex-direction:column;background:var(--panel);border:1px solid var(--line);transition:border-color .25s,transform .25s}
+.car:hover{border-color:var(--gold-deep);transform:translateY(-3px)}
+.car .shot{position:relative;aspect-ratio:4/3;max-width:100%;background:radial-gradient(80% 70% at 50% 75%,#262218 0%,#13120f 70%);display:grid;place-items:center;overflow:hidden}
+.car .shot svg{width:84%;height:auto}
+.car .shot img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 62%}
+.car .shot.has-photo .status,.car .shot.has-photo .yr{z-index:1}
+.car .shot.has-photo .yr{background:rgba(10,10,9,.7);padding:4px 8px;color:var(--text)}
+article.car .foot{flex-direction:column;align-items:flex-start;gap:12px}
+.car .acts{display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;width:100%}
+.car dd.km{white-space:nowrap}
+.car .ext{font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.car .ext:hover{color:var(--gold-light)}
+.inv-foot{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin-top:28px}
+.inv-foot .inv-note{margin:0}
+.car .shot .status{position:absolute;top:14px;left:14px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;padding:5px 10px;border:1px solid var(--line);background:rgba(10,10,9,.7);display:flex;align-items:center;gap:7px}
+.car .shot .status::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--ok)}
+.car .shot .status.reserved::before{background:var(--gold)}
+.car .shot .yr{position:absolute;top:14px;right:16px;font:600 12px var(--display);letter-spacing:.14em;color:var(--muted);font-variant-numeric:tabular-nums}
+.car .body{padding:22px 22px 20px;display:flex;flex-direction:column;gap:14px;flex:1}
+.car .make{font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.car h3{font-size:17px;letter-spacing:.04em;line-height:1.3;margin-top:4px}
+.car dl{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:0;padding-block:14px;border-block:1px solid var(--line)}
+.car dl div{display:flex;flex-direction:column;gap:2px;min-width:0}
+.car dt{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.car dd{margin:0;font-size:13px;font-weight:500;font-variant-numeric:tabular-nums;overflow-wrap:break-word;hyphens:manual}
+.car .foot{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-top:auto}
+.car .price{white-space:nowrap;font:700 17px var(--display);font-variant-numeric:tabular-nums;letter-spacing:.02em}
+.car .price small{display:block;font:500 10px var(--body);letter-spacing:.2em;color:var(--muted);text-transform:uppercase}
+.car .more{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-light);display:inline-flex;gap:8px;align-items:center}
+.car .more:hover{text-decoration:underline;text-underline-offset:4px}
+.empty{grid-column:1/-1;border:1px dashed var(--line);padding:40px;text-align:center;color:var(--muted)}
+.inv-note{font-size:12px;color:var(--muted);max-width:60ch}
+
+/* Video */
+.video{padding-block:0 96px}
+.vbox{position:relative;display:block;aspect-ratio:16/9;max-width:100%;border:1px solid var(--line);background:radial-gradient(60% 60% at 50% 50%,rgba(195,164,87,.14),transparent 70%),var(--panel);overflow:hidden}
+.vbox img.thumb{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.7;transition:opacity .3s}
+.vbox:hover img.thumb{opacity:.85}
+.vbox .mark{position:absolute;top:24px;left:24px;height:44px;width:auto;opacity:.9}
+.vbox .play{position:absolute;inset:0;display:grid;place-items:center;align-content:center;gap:18px}
+.vbox .play i{width:84px;height:84px;border-radius:50%;background:var(--gold-grad);display:grid;place-items:center;box-shadow:0 10px 40px rgba(0,0,0,.5);transition:transform .25s}
+.vbox:hover .play i{transform:scale(1.07)}
+.vbox .play i::after{content:"";margin-left:6px;border-left:22px solid #14110a;border-top:14px solid transparent;border-bottom:14px solid transparent}
+.vbox .play span{font-size:11px;letter-spacing:.26em;text-transform:uppercase;color:var(--text);background:rgba(10,10,9,.6);padding:6px 12px}
+.vbox iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+
+/* Social links */
+.social{display:inline-flex;gap:10px;align-items:center}
+.social a{display:inline-flex;align-items:center;gap:8px;color:var(--muted);transition:color .2s}
+.social a:hover{color:var(--gold-light)}
+.social svg{width:18px;height:18px;flex:none}
+.social.icons span{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.social.icons a{width:30px;height:30px;justify-content:center;border:1px solid var(--line)}
+.social.icons a:hover{border-color:var(--gold-deep)}
+.social.big{gap:12px;flex-wrap:wrap}
+.social.big a{border:1px solid var(--line);padding:10px 16px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--text)}
+.social.big a:hover{border-color:var(--gold-deep);color:var(--gold-light)}
+.social.big svg{color:var(--gold)}
+
+/* Sell band */
+.sell{border-block:1px solid var(--line);background:linear-gradient(90deg,rgba(127,106,44,.18),rgba(127,106,44,0) 60%),var(--panel)}
+.sell .wrap{display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:center;padding-block:64px}
+.sell p{color:var(--muted);max-width:52ch;margin:16px 0 0}
+.sell ol{list-style:none;margin:0;padding:0;display:grid;gap:16px;counter-reset:s}
+.sell li{display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start;counter-increment:s}
+.sell li::before{content:counter(s);width:40px;height:40px;border:1px solid var(--gold-deep);display:grid;place-items:center;font:600 13px var(--display);color:var(--gold-light)}
+.sell li b{display:block;font-size:13px;letter-spacing:.12em;text-transform:uppercase}
+.sell li span{color:var(--muted);font-size:14px}
+.sell .btn{margin-top:28px}
+@media (max-width:860px){.sell .wrap{grid-template-columns:1fr}}
+
+/* Services */
+.services{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.svc{padding:30px 26px 34px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);display:flex;flex-direction:column;gap:14px;min-width:0}
+.svc svg{width:30px;height:30px;stroke:var(--gold);fill:none;stroke-width:1.3}
+.svc h3{font-size:14px;letter-spacing:.14em}
+.svc p{margin:0;color:var(--muted);font-size:14px}
+@media (max-width:980px){.services{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.services{grid-template-columns:1fr}}
+
+/* About */
+.about .wrap{display:grid;grid-template-columns:1fr 1.2fr;gap:64px;align-items:center}
+.about .emblem{position:relative;display:grid;place-items:center;padding:40px;border:1px solid var(--line);background:radial-gradient(60% 60% at 50% 45%,rgba(195,164,87,.12),transparent 70%)}
+.about .emblem img{width:min(260px,70%);height:auto}
+.about .emblem figcaption{margin-top:22px;font-size:20px;color:var(--gold-light);text-align:center}
+.about p{color:var(--muted);max-width:60ch}
+.about .facts{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:30px;padding-top:26px;border-top:1px solid var(--line)}
+.about .facts b{display:block;font:700 28px/1.1 var(--display);font-variant-numeric:tabular-nums}
+.about .facts span{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+@media (max-width:860px){.about .wrap{grid-template-columns:1fr;gap:36px}}
+
+/* Contact */
+.contact{border-top:1px solid var(--line);background:var(--panel)}
+.contact .wrap{display:grid;grid-template-columns:1fr 1.25fr;gap:56px;padding-block:80px}
+.contact .info{display:flex;flex-direction:column;gap:22px}
+.contact .info dl{margin:10px 0 0;display:grid;gap:18px}
+.contact .info dt{font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--gold)}
+.contact .info dd{margin:4px 0 0;font-size:15px;user-select:all}
+.contact .info dd.hours{user-select:auto}
+form.req{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-content:start}
+form.req .full{grid-column:1/-1}
+form.req label{display:flex;flex-direction:column;gap:6px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);min-width:0}
+form.req input,form.req select,form.req textarea{background:var(--ink);border:1px solid var(--line);color:var(--text);font:400 15px var(--body);padding:13px 14px;letter-spacing:0;text-transform:none;width:100%}
+form.req input:focus,form.req select:focus,form.req textarea:focus{border-color:var(--gold);outline:none}
+form.req textarea{min-height:110px;resize:vertical}
+form.req .btn{justify-self:start}
+.thanks{grid-column:1/-1;border:1px solid var(--gold-deep);padding:16px 18px;color:var(--gold-light);font-size:14px}
+@media (max-width:860px){.contact .wrap{grid-template-columns:1fr}form.req{grid-template-columns:1fr}}
+
+/* Footer */
+footer.site{border-top:1px solid var(--line)}
+footer.site .wrap{display:flex;justify-content:space-between;align-items:center;gap:24px;padding-block:34px;flex-wrap:wrap;font-size:12px;color:var(--muted)}
+footer.site .brand img.mark{height:36px}
+footer.site nav{display:flex;gap:22px;flex-wrap:wrap;letter-spacing:.16em;text-transform:uppercase;font-size:11px}
+footer.site nav a:hover{color:var(--gold-light)}
+
+/* Intro: logo reveal before the site */
+#intro{position:fixed;inset:0;z-index:100;background:var(--ink);display:grid;place-items:center;cursor:pointer;transition:opacity .8s ease,visibility .8s}
+#intro.out{opacity:0;visibility:hidden}
+#intro::before{content:"";position:absolute;inset:0;background:radial-gradient(40% 40% at 50% 45%,rgba(195,164,87,.18),transparent 70%);opacity:0;animation:introGlow 2.4s ease .2s forwards}
+#intro .stack{position:relative;display:flex;flex-direction:column;align-items:center;gap:22px;padding-inline:24px;transition:transform .8s ease}
+#intro.out .stack{transform:scale(1.06)}
+#intro .m{position:relative;width:min(150px,36vw)}
+#intro .m img{width:100%;height:auto;display:block;opacity:0;transform:scale(.82);filter:blur(8px);animation:introMark 1.1s cubic-bezier(.2,.7,.2,1) .15s forwards}
+#intro .shine{position:absolute;inset:0;-webkit-mask-size:100% 100%;mask-size:100% 100%;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;background:linear-gradient(105deg,transparent 35%,rgba(255,250,215,.95) 50%,transparent 65%);background-size:250% 100%;background-position:150% 0;animation:introShine 1.1s ease-in-out 1.15s forwards}
+#intro .w{width:min(340px,72vw);height:auto;clip-path:inset(0 100% 0 0);animation:introWord 1s cubic-bezier(.6,0,.2,1) .9s forwards}
+#intro .rule{width:0;height:1px;background:var(--gold-grad);animation:introRule .9s ease 1.4s forwards}
+#intro .t{margin:0;font-size:clamp(16px,2.2vw,20px);color:var(--gold-light);opacity:0;transform:translateY(6px);animation:introTag .8s ease 1.6s forwards}
+#intro .skip{position:absolute;right:max(20px,env(safe-area-inset-right,0px));bottom:calc(20px + env(safe-area-inset-bottom,0px));font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);background:none;border:0;cursor:pointer;opacity:0;animation:introTag .6s ease 1s forwards}
+@keyframes introMark{to{opacity:1;transform:none;filter:none}}
+@keyframes introShine{to{background-position:-50% 0}}
+@keyframes introWord{to{clip-path:inset(0 0 0 0)}}
+@keyframes introRule{to{width:min(220px,50vw)}}
+@keyframes introTag{to{opacity:1;transform:none}}
+@keyframes introGlow{to{opacity:1}}
+body.intro-on{overflow:hidden}
+@media (prefers-reduced-motion:reduce){#intro{display:none}}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="gg" x1="0" y1="0" x2="1" y2="0.3">
+      <stop offset="0" stop-color="#7f6a2c"/><stop offset=".45" stop-color="#e8dc8c"/><stop offset=".7" stop-color="#b8984d"/><stop offset="1" stop-color="#7f6a2c"/>
+    </linearGradient>
+    <linearGradient id="bodyfill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2b261a"/><stop offset="1" stop-color="#0f0e0b"/>
+    </linearGradient>
+    <linearGradient id="glass" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3a3322"/><stop offset="1" stop-color="#14120d"/>
+    </linearGradient>
+    <symbol id="coupe" viewBox="0 0 400 140">
+      <ellipse cx="202" cy="120" rx="185" ry="7" fill="#000" opacity=".55"/>
+      <path d="M22,98 C22,88 30,83 48,80 L118,73 C142,56 170,45 208,43 C248,41 282,53 308,70 L352,76 C372,79 384,86 386,97 L386,103 C386,108 382,111 377,111 L334,111 A30,30 0 0 0 274,111 L126,111 A30,30 0 0 0 66,111 L30,111 C25,111 22,107 22,98 Z" fill="url(#bodyfill)" stroke="url(#gg)" stroke-width="1.6"/>
+      <path d="M132,74 C153,60 177,51 207,50 C236,49 258,58 280,72 Z" fill="url(#glass)" stroke="url(#gg)" stroke-width="1"/>
+      <path d="M206,50 L203,74" stroke="url(#gg)" stroke-width="1"/>
+      <path d="M60,92 L360,88" stroke="url(#gg)" stroke-width=".6" opacity=".55"/>
+      <circle cx="96" cy="111" r="24" fill="#0b0a08" stroke="url(#gg)" stroke-width="1.6"/><circle cx="96" cy="111" r="12" fill="none" stroke="url(#gg)" stroke-width="1"/>
+      <circle cx="304" cy="111" r="24" fill="#0b0a08" stroke="url(#gg)" stroke-width="1.6"/><circle cx="304" cy="111" r="12" fill="none" stroke="url(#gg)" stroke-width="1"/>
+      <path d="M372,84 L384,90" stroke="#e8dc8c" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="suv" viewBox="0 0 400 140">
+      <ellipse cx="202" cy="122" rx="185" ry="7" fill="#000" opacity=".55"/>
+      <path d="M20,96 C20,84 26,79 40,77 L84,72 C98,52 112,36 140,34 L286,34 C306,34 320,46 336,66 L364,70 C378,72 386,80 386,92 L386,104 C386,109 382,112 377,112 L334,112 A30,30 0 0 0 274,112 L126,112 A30,30 0 0 0 66,112 L28,112 C23,112 20,108 20,103 Z" fill="url(#bodyfill)" stroke="url(#gg)" stroke-width="1.6"/>
+      <path d="M100,70 L142,43 L282,43 C296,43 306,52 320,68 Z" fill="url(#glass)" stroke="url(#gg)" stroke-width="1"/>
+      <path d="M212,43 L210,70 M144,43 L140,30 M150,30 L290,30" stroke="url(#gg)" stroke-width="1"/>
+      <path d="M58,90 L362,86" stroke="url(#gg)" stroke-width=".6" opacity=".55"/>
+      <circle cx="96" cy="112" r="26" fill="#0b0a08" stroke="url(#gg)" stroke-width="1.6"/><circle cx="96" cy="112" r="13" fill="none" stroke="url(#gg)" stroke-width="1"/>
+      <circle cx="304" cy="112" r="26" fill="#0b0a08" stroke="url(#gg)" stroke-width="1.6"/><circle cx="304" cy="112" r="13" fill="none" stroke="url(#gg)" stroke-width="1"/>
+      <path d="M372,78 L384,82" stroke="#e8dc8c" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+    <symbol id="sedan" viewBox="0 0 400 140">
+      <ellipse cx="202" cy="120" rx="185" ry="7" fill="#000" opacity=".55"/>
+      <path d="M20,97 C20,87 28,82 44,80 L106,74 C128,56 156,44 196,42 C240,40 270,46 296,66 L356,74 C376,77 386,85 386,97 L386,103 C386,108 382,111 377,111 L334,111 A30,30 0 0 0 274,111 L126,111 A30,30 0 0 0 66,111 L28,111 C23,111 20,107 20,97 Z" fill="url(#bodyfill)" stroke="url(#gg)" stroke-width="1.6"/>
+      <path d="M118,74 C140,58 164,50 196,49 C232,48 256,54 284,70 Z" fill="url(#glass)" stroke="url(#gg)" stroke-width="1"/>
+      <path d="M200,49 L198,72" stroke="url(#gg)" stroke-width="1"/>
+      <path d="M58,91 L362,87" stroke="url(#gg)" stroke-width=".6" opacity=".55"/>
+      <circle cx="96" cy="111" r="24" fill="#0b0a08" stroke="url(#gg)" stroke-width="1.6"/><circle cx="96" cy="111" r="12" fill="none" stroke="url(#gg)" stroke-width="1"/>
+      <circle cx="304" cy="111" r="24" fill="#0b0a08" stroke="url(#gg)" stroke-width="1.6"/><circle cx="304" cy="111" r="12" fill="none" stroke="url(#gg)" stroke-width="1"/>
+      <path d="M372,82 L384,88" stroke="#e8dc8c" stroke-width="2" stroke-linecap="round"/>
+    </symbol>
+  </defs>
+</svg>
+
+<div id="intro" role="presentation" aria-hidden="true">
+  <div class="stack">
+    <div class="m"><img src="assets/mark.png" alt=""><span class="shine"></span></div>
+    <img class="w" src="assets/wordmark.png" alt="">
+    <span class="rule"></span>
+    <p class="t serif">Le prestige au sommet de l'élégance.</p>
+  </div>
+  <button class="skip" type="button">Passer</button>
+</div>
+
+<div class="topbar">
+  <div class="wrap">
+    <span>Showroom <b>Rue Abou Al Mahassine Royani, Maârif, Casablanca</b> · Du lundi au samedi, 9h à 20h</span>
+    <div class="tb-right">
+      <span>Tél. <b>+212 6 60 29 72 47</b></span>
+      <a href="https://wa.me/212660297247" target="_blank" rel="noopener" style="color:var(--gold-light)">WhatsApp ↗</a>
+      <span class="social icons"><a href="https://www.instagram.com/elegancecars.ma/" target="_blank" rel="noopener" aria-label="Instagram Elegance Cars"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg><span>Instagram</span></a><a href="https://www.youtube.com/@elegancecarsma" target="_blank" rel="noopener" aria-label="YouTube Elegance Cars"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2a2.6 2.6 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.6 2.6 0 0 0 2.4 7.2 27 27 0 0 0 2 12a27 27 0 0 0 .4 4.8 2.6 2.6 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.6 2.6 0 0 0 1.8-1.8A27 27 0 0 0 22 12a27 27 0 0 0-.4-4.8z" fill="currentColor"/><path d="M10 15.2V8.8l5.4 3.2z" fill="var(--ink)"/></svg><span>YouTube</span></a></span>
+    </div>
+  </div>
+</div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Accueil Elegance Cars">
+      <img class="mark" src="assets/mark.png" alt="">
+      <img class="word" src="assets/wordmark.png" alt="Elegance Cars">
+    </a>
+    <nav class="main" id="nav">
+      <a href="#inventory">Nos voitures</a>
+      <a href="#video">Vidéo</a>
+      <a href="reels.html">Reels</a>
+      <a href="#sell">Vendre sa voiture</a>
+      <a href="#services">Services</a>
+      <a href="#about">À propos</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn btn-gold hdr-cta" href="#contact">Prendre rendez-vous</a>
+    <button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="nav"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Voitures de luxe &amp; de prestige</div>
+        <h1 style="margin-top:18px"><span class="gold-text">Des voitures d'exception,</span><br>choisies une à une</h1>
+        <p class="tag serif">« Le prestige au sommet de l'élégance. »</p>
+        <p class="lede">Voitures importées, neuves et d'occasion, au cœur de Casablanca. Découvrez notre collection, passez au showroom avec ou sans rendez-vous, ou laissez-nous trouver la voiture que vous recherchez.</p>
+        <div class="ctas">
+          <a class="btn btn-gold" href="#inventory">Voir la collection</a>
+          <a class="btn btn-ghost" href="#sell">Vendre ma voiture</a>
+        </div>
+        <div class="hero-stats">
+          <div><b class="gold-text" id="statCount">30</b><span>Voitures en stock</span></div>
+          <div><b class="gold-text">Neuf</b><span>&amp; occasion importés</span></div>
+          <div><b class="gold-text">4,6/5</b><span>Google, 32 avis</span></div>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <svg viewBox="0 0 400 140"><use href="#coupe"/></svg>
+      </div>
+    </div>
+  </section>
+
+  <div class="search">
+    <div class="wrap">
+      <form id="searchForm" aria-label="Rechercher une voiture">
+        <label><span>Marque</span><select id="fMake"><option value="">Toutes les marques</option></select></label>
+        <label><span>Carrosserie</span><select id="fBody"><option value="">Toutes</option></select></label>
+        <label><span>État</span>
+          <select id="fCond">
+            <option value="">Neuf &amp; occasion</option>
+            <option value="New">Neuf (0 km)</option>
+            <option value="Used">Occasion</option>
+          </select>
+        </label>
+        <label><span>Année min.</span><select id="fYear"><option value="">Toutes</option></select></label>
+        <button class="btn btn-gold" type="submit">Rechercher</button>
+      </form>
+    </div>
+  </div>
+
+  <section class="block" id="inventory">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="left">
+          <div class="eyebrow">Arrivages récents</div>
+          <h2>La collection</h2>
+          <div class="sub serif">Notre stock actuel, prêt à prendre la route.</div>
+        </div>
+        <div class="chips" id="chips" role="group" aria-label="Filtrer par marque"></div>
+      </div>
+      <div class="grid" id="grid"></div>
+      <div class="inv-foot">
+        <p class="inv-note">Stock et photos de notre vitrine Moteur.ma. Prix sur demande : appelez-nous ou envoyez-nous un message.</p>
+        <div class="ctas" style="display:flex;gap:12px;flex-wrap:wrap">
+          <button class="btn btn-ghost" type="button" id="showAll">Voir toutes les voitures</button>
+          <a class="btn btn-gold" href="https://www.moteur.ma/fr/voiture/achat-voiture-occasion/stock-professionnel/463772/elegance-cars-casablanca.html" target="_blank" rel="noopener">Notre vitrine sur Moteur.ma ↗</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="video" id="video">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="left">
+          <div class="eyebrow">Vidéo</div>
+          <h2>Elegance Cars <span class="gold-text">en vidéo</span></h2>
+        </div>
+      </div>
+      <a class="vbox" id="vbox" href="https://www.youtube.com/watch?v=wkA_2ga_76A" target="_blank" rel="noopener" data-id="wkA_2ga_76A" aria-label="Lire la vidéo Elegance Cars">
+        <img class="thumb" src="https://i.ytimg.com/vi/wkA_2ga_76A/maxresdefault.jpg" alt="" onerror="this.remove()">
+        <img class="mark" src="assets/mark.png" alt="">
+        <div class="play"><i></i><span id="vlabel">Lire la vidéo</span></div>
+      </a>
+    </div>
+  </section>
+
+  <section class="sell" id="sell">
+    <div class="wrap">
+      <div>
+        <div class="eyebrow">Vous vendez votre voiture ?</div>
+        <h2 style="margin-top:14px">Une offre juste, <span class="gold-text">sans complications</span></h2>
+        <p>Présentez-nous votre voiture et nous revenons vers vous avec une offre ferme sous 48 heures. Nous nous occupons de l'expertise, des papiers et du paiement, et vous pouvez utiliser sa valeur pour votre prochaine voiture.</p>
+        <a class="btn btn-gold" href="#contact" data-interest="Vendre ma voiture">Obtenir une offre</a>
+      </div>
+      <ol>
+        <li><div><b>Envoyez les détails</b><span>Marque, modèle, année, kilométrage et quelques photos.</span></div></li>
+        <li><div><b>Recevez une offre</b><span>Un prix ferme sous 48 heures, valable 7 jours.</span></div></li>
+        <li><div><b>Soyez payé</b><span>Virement le jour même à la remise de la voiture.</span></div></li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="block" id="services" style="padding-top:96px">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="left">
+          <div class="eyebrow">Services</div>
+          <h2>Tout autour de la voiture</h2>
+        </div>
+      </div>
+      <div class="services">
+        <div class="svc">
+          <svg viewBox="0 0 30 30"><circle cx="13" cy="13" r="8"/><path d="M19 19l7 7"/></svg>
+          <h3>Recherche sur mesure</h3>
+          <p>Un modèle, une couleur ou une finition en particulier ? Nous le cherchons dans notre réseau et l'importons pour vous.</p>
+        </div>
+        <div class="svc">
+          <svg viewBox="0 0 30 30"><path d="M4 11h18l-4-4M26 19H8l4 4"/></svg>
+          <h3>Reprise</h3>
+          <p>Laissez-nous votre voiture actuelle en reprise et repartez avec la nouvelle le jour même.</p>
+        </div>
+        <div class="svc">
+          <svg viewBox="0 0 30 30"><rect x="4" y="7" width="22" height="16"/><path d="M4 12h22M8 18h5"/></svg>
+          <h3>Financement</h3>
+          <p>Crédit et leasing avec nos banques partenaires, adaptés à votre budget.</p>
+        </div>
+        <div class="svc">
+          <svg viewBox="0 0 30 30"><path d="M3 19V9h14v10M17 13h6l4 4v2h-4"/><circle cx="8" cy="21" r="2.5"/><circle cx="22" cy="21" r="2.5"/></svg>
+          <h3>Livraison</h3>
+          <p>Livraison à domicile, avec une remise en main complète et la présentation de la voiture.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block about" id="about">
+    <div class="wrap">
+      <figure class="emblem" style="margin:0">
+        <img src="assets/mark.png" alt="Emblème Elegance Cars">
+        <figcaption class="serif">Le prestige au sommet de l'élégance.</figcaption>
+      </figure>
+      <div>
+        <div class="eyebrow">Bienvenue chez Elegance Cars</div>
+        <h2 style="margin-top:14px">Un showroom fondé sur <span class="gold-text">la confiance et le goût</span></h2>
+        <p style="margin-top:20px">Elegance Cars achète et vend des véhicules importés, neufs et d'occasion, depuis son showroom situé au cœur de Casablanca, à Maârif. De Mercedes-Benz et Audi à Porsche, Lamborghini et Ferrari, chaque voiture est choisie avec soin et présentée en toute transparence.</p>
+        <p>Que vous veniez pour acheter, vendre ou simplement regarder, vous serez accueilli par des passionnés qui aiment ces voitures autant que vous, et qui vous répondront franchement.</p>
+        <div class="facts">
+          <div><b class="gold-text">4,6/5</b><span>Note Google</span></div>
+          <div><b class="gold-text">Maârif</b><span>Casablanca</span></div>
+          <div><b class="gold-text">6j/7</b><span>Du lundi au samedi</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <div class="info">
+        <div class="eyebrow">Contact</div>
+        <h2>Une question ?<br><span class="gold-text">Parlons-en</span></h2>
+        <dl>
+          <div><dt>Showroom</dt><dd>Rue Abou Al Mahassine Royani, Maârif, Casablanca</dd></div>
+          <div><dt>Téléphone &amp; WhatsApp</dt><dd>+212 6 60 29 72 47</dd><dd class="hours" style="margin-top:6px"><a href="https://wa.me/212660297247" target="_blank" rel="noopener" style="color:var(--gold-light)">WhatsApp ↗</a></dd></div>
+          <div><dt>Horaires</dt><dd class="hours">Du lundi au samedi, de 9h à 20h</dd></div>
+          <div><dt>Suivez-nous</dt><dd class="hours" style="margin-top:10px"><span class="social big"><a href="https://www.instagram.com/elegancecars.ma/" target="_blank" rel="noopener" aria-label="Instagram Elegance Cars"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg><span>Instagram</span></a><a href="https://www.youtube.com/@elegancecarsma" target="_blank" rel="noopener" aria-label="YouTube Elegance Cars"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2a2.6 2.6 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.6 2.6 0 0 0 2.4 7.2 27 27 0 0 0 2 12a27 27 0 0 0 .4 4.8 2.6 2.6 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.6 2.6 0 0 0 1.8-1.8A27 27 0 0 0 22 12a27 27 0 0 0-.4-4.8z" fill="currentColor"/><path d="M10 15.2V8.8l5.4 3.2z" fill="var(--ink)"/></svg><span>YouTube</span></a></span></dd></div>
+        </dl>
+      </div>
+      <form class="req" id="reqForm" novalidate>
+        <div class="full"><div class="eyebrow" style="margin-bottom:6px">Demander un prix ou un rendez-vous</div></div>
+        <label>Nom complet<input id="rName" name="name" autocomplete="name" required placeholder="Votre nom"></label>
+        <label>Téléphone<input id="rPhone" name="phone" type="tel" autocomplete="tel" required placeholder="+212 6 00 00 00 00"></label>
+        <label>Email (facultatif)<input id="rEmail" name="email" type="email" autocomplete="email" placeholder="vous@exemple.com"></label>
+        <label>Je suis intéressé par
+          <select id="rCar" name="car"><option value="">Demande générale</option><option>Vendre ma voiture</option></select>
+        </label>
+        <label class="full">Message<textarea id="rMsg" name="message" placeholder="Dites-nous ce que vous recherchez, ou quand vous souhaitez passer."></textarea></label>
+        <button class="btn btn-gold" type="submit">Continuer</button>
+        <div class="thanks" id="thanks" hidden></div>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <a class="brand" href="#top"><img class="mark" src="assets/mark.png" alt=""><img class="word" src="assets/wordmark.png" alt="Elegance Cars"></a>
+    <nav><a href="#inventory">Nos voitures</a><a href="#sell">Vendre sa voiture</a><a href="#services">Services</a><a href="#about">À propos</a><a href="reels.html">Reels</a><a href="#contact">Contact</a></nav>
+    <span class="social icons"><a href="https://www.instagram.com/elegancecars.ma/" target="_blank" rel="noopener" aria-label="Instagram Elegance Cars"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.8"/><circle cx="17.4" cy="6.6" r="1.2" fill="currentColor"/></svg><span>Instagram</span></a><a href="https://www.youtube.com/@elegancecarsma" target="_blank" rel="noopener" aria-label="YouTube Elegance Cars"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.6 7.2a2.6 2.6 0 0 0-1.8-1.8C18.2 5 12 5 12 5s-6.2 0-7.8.4A2.6 2.6 0 0 0 2.4 7.2 27 27 0 0 0 2 12a27 27 0 0 0 .4 4.8 2.6 2.6 0 0 0 1.8 1.8C5.8 19 12 19 12 19s6.2 0 7.8-.4a2.6 2.6 0 0 0 1.8-1.8A27 27 0 0 0 22 12a27 27 0 0 0-.4-4.8z" fill="currentColor"/><path d="M10 15.2V8.8l5.4 3.2z" fill="var(--ink)"/></svg><span>YouTube</span></a></span>
+    <span>© <span id="yr">2026</span> Elegance Cars. Tous droits réservés.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var el=document.getElementById("intro");if(!el)return;
+  var reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  if(reduce){el.remove();return;}
+  document.body.classList.add("intro-on");
+  var mk=el.querySelector(".m img"),sh=el.querySelector(".shine");
+  sh.style.webkitMaskImage=sh.style.maskImage="url("+mk.getAttribute("src")+")";
+  var done=false;
+  function end(){if(done)return;done=true;el.classList.add("out");document.body.classList.remove("intro-on");setTimeout(function(){el.remove();},900);}
+  setTimeout(end,3300);
+  el.addEventListener("click",end);
+  document.addEventListener("keydown",function k(e){if(e.key==="Escape"||e.key==="Enter"||e.key===" "){end();document.removeEventListener("keydown",k);}});
+})();
+</script>
+<script>
+(function(){
+  // Le stock vient de cars.json, mis à jour automatiquement depuis Moteur.ma (scripts/sync-moteur.mjs).
+  var SHAPE={"SUV":"suv","Utilitaire":"suv","Coupé":"coupe","Berline":"sedan"};
+  var CARS=[];
+  var fmt=function(n){return n.toLocaleString("fr-FR").replace(/\u202f|\u00a0/g," ");};
+  var $=function(id){return document.getElementById(id);};
+  var uniq=function(k){return CARS.map(function(c){return c[k];}).filter(function(v,i,a){return a.indexOf(v)===i;});};
+  var state={make:"",body:"",cond:"",year:0},expanded=false,PAGE=8;
+  function start(list){
+  CARS=list.map(function(c){return {make:c.make,model:c.model,year:c.year,km:c.km,fuel:c.fuel,body:c.body,shape:SHAPE[c.body]||"sedan",id:c.id,url:c.url,photo:c.photo,cond:c.km===0?"New":"Used"};});
+  $("statCount").textContent=CARS.length;
+  $("fMake").length=1;$("fBody").length=1;$("fYear").length=1;$("rCar").length=2;$("chips").innerHTML="";
+
+  // Fill selects and chips
+  uniq("make").sort().forEach(function(m){$("fMake").add(new Option(m,m));});
+  uniq("body").sort().forEach(function(b){$("fBody").add(new Option(b,b));});
+  uniq("year").sort().forEach(function(y){$("fYear").add(new Option(y,y));});
+  CARS.forEach(function(c){var n=c.make+" "+c.model+" ("+c.year+")";$("rCar").add(new Option(n,n));});
+
+  var chipMakes=["Toutes"].concat(uniq("make").sort());
+  chipMakes.forEach(function(m){
+    var b=document.createElement("button");b.type="button";b.className="chip";b.textContent=m;
+    b.setAttribute("aria-pressed",m==="Toutes"?"true":"false");
+    b.addEventListener("click",function(){state.make=m==="Toutes"?"":m;$("fMake").value=state.make;render();});
+    $("chips").appendChild(b);
+  });
+
+  render();
+  }
+  function card(c){
+    var name=c.make+" "+c.model+" ("+c.year+")";
+    var el=document.createElement("article");el.className="car";
+    el.innerHTML=
+      '<div class="shot"><span class="status">Disponible</span><span class="yr">'+c.year+'</span>'+
+      '<svg viewBox="0 0 400 140" aria-hidden="true"><use href="#'+c.shape+'"/></svg></div>'+
+      '<div class="body"><div><div class="make">'+c.make+'</div><h3>'+c.model+'</h3></div>'+
+      '<dl><div><dt>État</dt><dd>'+(c.cond==="New"?"Neuf":"Occasion")+'</dd></div><div><dt>Km</dt><dd class="km">'+fmt(c.km)+' km</dd></div><div><dt>Énergie</dt><dd>'+(c.fuel||"Nous consulter")+'</dd></div></dl>'+
+      '<div class="foot"><div class="price">Prix sur demande</div>'+
+      '<div class="acts"><a class="more" href="#contact">Se renseigner <span aria-hidden="true">→</span></a>'+
+      '<a class="ext" href="'+c.url+'" target="_blank" rel="noopener">Voir sur Moteur.ma ↗</a></div></div></div>';
+    var shot=el.querySelector(".shot"),img=new Image();
+    img.alt=name;img.referrerPolicy="no-referrer";
+    img.onload=function(){shot.classList.add("has-photo");shot.appendChild(img);};
+    var src=(window.__PHOTOS&&window.__PHOTOS[c.id])||c.photo;if(!src)return el;img.src=src;
+    el.querySelector(".more").addEventListener("click",function(){$("rCar").value=name;});
+    return el;
+  }
+
+  function render(){
+    var list=CARS.filter(function(c){
+      return (!state.make||c.make===state.make)&&(!state.body||c.body===state.body)&&(!state.cond||c.cond===state.cond)&&(!state.year||c.year>=state.year);
+    });
+    var filtered=!!(state.make||state.body||state.cond||state.year);
+    var shown=(expanded||filtered)?list:list.slice(0,PAGE);
+    var g=$("grid");g.innerHTML="";
+    if(!list.length){var e=document.createElement("div");e.className="empty";e.textContent="Aucune voiture ne correspond à cette recherche pour le moment. Retirez un filtre, ou demandez-nous de la trouver pour vous.";g.appendChild(e);}
+    shown.forEach(function(c){g.appendChild(card(c));});
+    var sa=$("showAll");sa.hidden=shown.length>=list.length;sa.textContent="Voir les "+list.length+" voitures";
+    Array.prototype.forEach.call($("chips").children,function(b){b.setAttribute("aria-pressed",String((b.textContent==="Toutes"&&!state.make)||b.textContent===state.make));});
+  }
+  $("showAll").addEventListener("click",function(){expanded=true;render();});
+
+  // Video: plays inline on the real site; the preview sandbox can't embed YouTube, so there it opens YouTube
+  var vb=$("vbox");
+  if(window.__PREVIEW){$("vlabel").textContent="Regarder sur YouTube ↗";}
+  else vb.addEventListener("click",function(e){
+    e.preventDefault();
+    var f=document.createElement("iframe");
+    f.src="https://www.youtube-nocookie.com/embed/"+vb.getAttribute("data-id")+"?autoplay=1&rel=0";
+    f.title="Vidéo Elegance Cars";f.allow="autoplay; encrypted-media; picture-in-picture; fullscreen";f.allowFullscreen=true;
+    vb.innerHTML="";vb.appendChild(f);vb.removeAttribute("href");
+  });
+
+  $("searchForm").addEventListener("submit",function(e){
+    e.preventDefault();
+    state.make=$("fMake").value;state.body=$("fBody").value;
+    state.cond=$("fCond").value;state.year=+$("fYear").value||0;
+    render();
+    $("inventory").scrollIntoView({behavior:"smooth"});
+  });
+
+  document.querySelectorAll("[data-interest]").forEach(function(a){a.addEventListener("click",function(){$("rCar").value=a.getAttribute("data-interest");});});
+
+  $("reqForm").addEventListener("submit",function(e){
+    e.preventDefault();
+    var f=e.target,t=$("thanks"),missing=[];
+    if(!$("rName").value.trim())missing.push("votre nom");
+    if(!$("rPhone").value.trim())missing.push("un numéro de téléphone");
+    var em=$("rEmail").value.trim();
+    if(em&&!/^\S+@\S+\.\S+$/.test(em))missing.push("un email valide");
+    t.hidden=false;
+    if(missing.length){t.textContent="Merci d'ajouter "+missing.join(", ")+" pour que nous puissions vous répondre.";return;}
+    // Requests go to the showroom's WhatsApp, pre-filled; the visitor taps Send in WhatsApp.
+    var car=$("rCar").value||"Demande générale",msg=$("rMsg").value.trim();
+    var text="Bonjour Elegance Cars,\n\nNom : "+$("rName").value.trim()+"\nTéléphone : "+$("rPhone").value.trim()+(em?"\nEmail : "+em:"")+"\nIntéressé par : "+car+(msg?"\n\n"+msg:"");
+    var href="https://wa.me/212660297247?text="+encodeURIComponent(text);
+    t.innerHTML="";
+    var p1=document.createElement("p");p1.style.margin="0 0 12px";p1.textContent="Dernière étape : envoyez votre demande sur WhatsApp. Le message est déjà rédigé, il vous suffit d'appuyer sur Envoyer.";
+    var a=document.createElement("a");a.className="btn btn-gold";a.href=href;a.target="_blank";a.rel="noopener";a.textContent="Envoyer sur WhatsApp ↗";
+    t.appendChild(p1);t.appendChild(a);
+  });
+
+  var mb=$("menuBtn"),nav=$("nav");
+  mb.addEventListener("click",function(){var o=nav.classList.toggle("open");mb.setAttribute("aria-expanded",String(o));});
+  nav.addEventListener("click",function(e){if(e.target.tagName==="A"){nav.classList.remove("open");mb.setAttribute("aria-expanded","false");}});
+
+  $("yr").textContent=new Date().getFullYear();
+  if(window.__CARS){start(window.__CARS);}
+  fetch("cars.json",{cache:"no-cache"}).then(function(r){if(!r.ok)throw 0;return r.json();}).then(start).catch(function(){
+    if(!window.__CARS){$("grid").innerHTML='<div class="empty">Le stock n\'a pas pu être chargé. Retrouvez toutes nos voitures sur Moteur.ma.</div>';}
+  });
+})();
+</script>
+
+</body>
+</html>
