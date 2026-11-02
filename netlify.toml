@@ -1,0 +1,9 @@
+# Site statique : pas de compilation, Netlify publie le dossier tel quel.
+[build]
+  publish = "."
+  command = ""
+
+[[headers]]
+  for = "/cars.json"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
