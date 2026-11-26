@@ -1,29 +1,5 @@
 [
   {
-    "id": "745083",
-    "make": "Mercedes-Benz",
-    "model": "Classe GLC",
-    "year": 2026,
-    "km": 0,
-    "fuel": "Hybride",
-    "gearbox": "Automatique",
-    "body": "SUV",
-    "url": "https://www.moteur.ma/fr/voiture/achat-voiture-occasion/detail-annonce/745083/mercedes-benz-classe-glc.html",
-    "photo": "assets/cars/745083.jpg"
-  },
-  {
-    "id": "735902",
-    "make": "Mercedes-Benz",
-    "model": "Classe GLC",
-    "year": 2024,
-    "km": 30000,
-    "fuel": "Diesel",
-    "gearbox": "Automatique",
-    "body": "SUV",
-    "url": "https://www.moteur.ma/fr/voiture/achat-voiture-occasion/detail-annonce/735902/mercedes-benz-classe-glc.html",
-    "photo": "assets/cars/735902.jpg"
-  },
-  {
     "id": "735728",
     "make": "Audi",
     "model": "Q8",
@@ -70,6 +46,30 @@
     "body": "SUV",
     "url": "https://www.moteur.ma/fr/voiture/achat-voiture-occasion/detail-annonce/731588/mercedes-benz-classe-g.html",
     "photo": "assets/cars/731588.jpg"
+  },
+  {
+    "id": "747053",
+    "make": "Mercedes-Benz",
+    "model": "Classe E",
+    "year": 2026,
+    "km": 0,
+    "fuel": "Hybride",
+    "gearbox": "Automatique",
+    "body": "Berline",
+    "url": "https://www.moteur.ma/fr/voiture/achat-voiture-occasion/detail-annonce/747053/mercedes-benz-classe-e.html",
+    "photo": "assets/cars/747053.jpg"
+  },
+  {
+    "id": "747021",
+    "make": "Peugeot",
+    "model": "508",
+    "year": 2021,
+    "km": 125000,
+    "fuel": "Diesel",
+    "gearbox": "Automatique",
+    "body": "Berline",
+    "url": "https://www.moteur.ma/fr/voiture/achat-voiture-occasion/detail-annonce/747021/peugeot-508.html",
+    "photo": "assets/cars/747021.jpg"
   },
   {
     "id": "666178",
@@ -216,6 +216,18 @@
     "photo": "assets/cars/632919.jpg"
   },
   {
+    "id": "735902",
+    "make": "Mercedes-Benz",
+    "model": "Classe GLC",
+    "year": 2024,
+    "km": 30000,
+    "fuel": "Diesel",
+    "gearbox": "Automatique",
+    "body": "SUV",
+    "url": "https://www.moteur.ma/fr/voiture/achat-voiture-occasion/detail-annonce/735902/mercedes-benz-classe-glc.html",
+    "photo": "assets/cars/735902.jpg"
+  },
+  {
     "id": "712565",
     "make": "Porsche",
     "model": "Cayenne E-Hybrid Coupé",
@@ -226,6 +238,18 @@
     "body": "SUV",
     "url": "https://www.moteur.ma/fr/voiture/achat-voiture-occasion/detail-annonce/712565/porsche-cayenne.html",
     "photo": "assets/cars/712565.jpg"
+  },
+  {
+    "id": "745083",
+    "make": "Mercedes-Benz",
+    "model": "Classe GLC",
+    "year": 2026,
+    "km": 0,
+    "fuel": "Hybride",
+    "gearbox": "Automatique",
+    "body": "SUV",
+    "url": "https://www.moteur.ma/fr/voiture/achat-voiture-occasion/detail-annonce/745083/mercedes-benz-classe-glc.html",
+    "photo": "assets/cars/745083.jpg"
   },
   {
     "id": "725555",
